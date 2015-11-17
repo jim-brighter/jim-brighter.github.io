@@ -239,6 +239,7 @@ p, button {
 
     .links {
         left: -5%;
+        width: 100%;
     }
 
     .link {
@@ -272,7 +273,7 @@ p, button {
     }
 
     .links {
-        left: -12.5%;
+        left: -5%;
         width: 100%;
     }
 
