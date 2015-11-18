@@ -277,14 +277,14 @@ p, button {
     }
 
     .links {
-        left: -5%;
+        left: -10%;
         width: 100%;
     }
 
     .link {
         display: inline;
         margin: 0;
-        padding: 0.5% 1% 0.5% 1%;
+        padding: 0.5% 2% 0.5% 2%;
     }
 
     .body-element {
