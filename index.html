@@ -37,7 +37,7 @@
       </p>
     </div>
     
-    <div class="body">     
+    <div class="body hidden">     
       <h3 class="body-title wow fadeInDown" data-wow-duration="0.5s">projects</h3>
       <div class="body-element wow fadeInDown" data-wow-duration="0.5s">
         <h5 class="project-title">BRICK BLASTER 6000</h5>
@@ -69,7 +69,7 @@
         <p class="project-content">A client/server chat-room client supporting multiple threads/users. A static twitter-like social network graph. Several simple iOS apps using Core Data, MapKit, varying View Controllers, and other libraries. Simple Ruby on Rails projects. A Django app for analyzing financial data.</p>
       </div>
       
-      <div class="push wow fadeInUp" data-wow-duration="0.5s"></div>
+      <div class="hidden push wow fadeInUp" data-wow-duration="0.5s"></div>
 
     </div>
 
@@ -81,7 +81,7 @@
       <button class="projects-button" id="projects-button">view projects</button>
     </div>
 
-    <div class="footer wow fadeInUp" data-wow-duration="0.5s">
+    <div class="hidden footer wow fadeInUp" data-wow-duration="0.5s">
       <p class="footer-content">Made by Jim, with help from <a href="http://daneden.github.io/animate.css/">Animate.css</a> and <a href="http://mynameismatthieu.com/WOW/index.html">Wow.js</a>.</p>
     </div>
 
@@ -95,9 +95,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            $(".body").hide();
-            $(".push").hide();
-            $(".footer").hide();
 
             $(".projects-button").click(function() {
               $(".projects-button-container").hide();

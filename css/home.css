@@ -4,6 +4,10 @@ CSS stylesheet for index.html
 box shadow property: horizontal vertical blur spread color inset
 */
 
+.hidden {
+    display: none;
+}
+
 body {
     font-family: "Roboto", Helvetica, Arial, sans-serif;
     font-weight: 300;
