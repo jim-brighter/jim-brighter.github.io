@@ -41,6 +41,7 @@ h6 {
     width: 100%;
     min-height: 700px !important;
     height: 100%;
+    background-color: #fafafa;
 }
 
 #top {
@@ -85,13 +86,14 @@ h6 {
     height: 100%;
     vertical-align: top;
     color: black;
-    border: 1px solid white;
+    border: 1px solid #fafafa;
     border-radius: 2px;
 }
 
 .card:hover {
     color: red;
     border: 1px solid red;
+    background-color: white;
 }
 
 .card p {
