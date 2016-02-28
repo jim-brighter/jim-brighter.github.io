@@ -1,0 +1,131 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+/*
+CSS stylesheet for index.html
+
+*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    cursor: default;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    font-size: 72pt;
+}
+
+h5 {
+    font-size: 42pt;
+}
+
+h6 {
+    font-size: 32pt;
+}
+
+.card, .card>* {
+    cursor: pointer;
+}
+
+.small {
+    font-size: 24pt;
+}
+
+.main {
+    width: 100%;
+    min-height: 700px !important;
+    height: 100%;
+}
+
+#top {
+    height: 100%;
+    background-color: red;
+}
+
+.heading {
+    border: 0;
+    padding: 0;
+    color: white;
+    font-weight: bold;
+}
+
+.titles {
+    padding: 5em 0em 0em 5em;
+}
+
+#bio-summary {
+    text-align: left;
+    color: white;
+    padding: 6em 0em 0em 2em;
+}
+
+#middle {
+    text-align: center;
+}
+
+#middle-heading {
+    padding-top: 1em;
+}
+
+#card-deck {
+    height: 30%;
+    margin-top: 4em;
+    
+}
+
+.card {
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+    vertical-align: top;
+    color: black;
+    border: 1px solid white;
+    border-radius: 2px;
+}
+
+.card:hover {
+    color: red;
+    border: 1px solid red;
+}
+
+.card p {
+    margin-top: 1em;
+}
+
+.links {
+    list-style-type: none;
+}
+
+.link {
+    display: inline-block;
+    margin-left: .4em;
+    margin-right: .4em;
+    font-size: 16pt;
+}
+
+.link>a:hover, .link>a:visited:hover {
+    color: white;
+    cursor: pointer;
+    border-bottom: 3px solid white;
+}
+
+.link>a, .link>a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+#push, #footer {
+    width: 100%;
+    text-align: center;
+}
+
+#list-container {
+    position: relative;
+    text-align: left;
+}

@@ -1,124 +1,67 @@
-<!DOCTYPE HTML>
+<!doctype html>
 
 <html lang="en">
 
 <head>
-    <title>Jim Brighter</title>
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans">
-    <link href="http://fonts.googleapis.com/css?family=Roboto:700,400,300" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="css/home.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
-    <meta name="author" content="Jim Brighter">
-    <meta name="keywords" content="jim, Jim, brighter, Brighter, Jim Brighter, jim brighter">
+  <title>Jim Brighter</title>
+  <link rel="stylesheet" type="text/css" href="css/home-main.css">
+  <link rel="stylesheet" type="text/css" href="css/home-phone.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="author" content="Jim Brighter">
+  <meta name="keywords" content="jim, Jim, brighter, Brighter, Jim Brighter, jim brighter">
 </head>
 
 <body>
 
-    <div class="header-container">
-      <div class="header">
-        <h1>jim brighter</h1>
-        <ul class="links">
-          <li class="link" id="twitter"><a href="http://www.twitter.com/jim_brighter">twitter</a></li>
-          <li class="link" id="github"><a href="http://www.github.com/jim-brighter">github</a></li>
-          <li class="link" id="linkedin"><a href="https://www.linkedin.com/in/jimbrighter">linkedin</a></li>
-          <li class="link" id="email"><a href="mailto:hello@jimbrighter.com">email</a></li>
-          <li class="link" id="resume"><a href="JimBrighter.pdf">resume</a></li>
+  <div id="top" class="main wow fadeInDown" data-wow-duration="0.5s">
+
+    <div class="titles wow fadeInLeft" data-wow-duration="0.5s">
+      <h1 class="heading">Jim Brighter</h1>
+      <h5 class="heading">Software Engineer</h5>
+      <div id="list-container">
+        <ul id="links">
+          <li class="link"><a href="https://www.twitter.com/jim_brighter">Twitter</a></li>
+          <li class="link"><a href="https://www.github.com/jim-brighter">GitHub</a></li>
+          <li class="link"><a href="https://www.linkedin.com/in/jimbrighter">LinkedIn</a></li>
+          <li class="link"><a href="mailto:hello@jimbrighter.com">Email</a></li>
+          <li class="link"><a href="JimBrighter.pdf">Resume</a></li>
         </ul>
       </div>
     </div>
+    <h6 id="bio-summary">Hey, I'm Jim. I'm a developer currently using Java and AngularJS.<br/>
+      <span class="small">(But I like C/C++ and Python too)</span></h6>
+  </div>
 
-    <div class="bio-summary wow fadeInDown" data-wow-duration="0.5s">
-      <!-- <h3 class="bio-title">Bio Summary</h3> -->
-      <p class="bio-content">Hey, I'm Jim! I'm a recent <a href="http://www.upenn.edu">Penn</a> grad that studied Psychology and Computer Science.<br>
-      I love programming, playing and making games, computer hardware, and new tech. Also a fan of music, travelling, food, and binge-watching TV series.<br>
-      Check out some of the stuff I've done!
-      </p>
+    <div id="middle" class="main">
+
+      <h5 id="middle-heading">Some Links</h5>
+
+      <div id="card-deck">
+        <a href="http://photodump.xyz"><div class="card">
+          <h6 class="small">Photodump XYZ</h6>
+          <p>An image dump website that allows posting and getting of images. Uses AngularJS for the frontend and a Java Spring Boot application for the backend, with Hibernate to manage storage in a PostgreSQL database.</p>
+        </div></a>
+
+        <div class="card">
+          <h6 class="small">Coming Soon!</h6>
+          <p>A Django project in the works!</p>
+        </div>
+
+        <div class="card">
+          <h6 class="small">Coming Later!</h6>
+          <p>Even I don't know yet!</p>
+        </div>
+
+      </div>
     </div>
-    
-    <div class="body hidden">     
-      <h3 class="body-title wow fadeInDown" data-wow-duration="0.5s">projects</h3>
-      <div class="body-element wow fadeInDown" data-wow-duration="0.5s">
-        <h5 class="project-title">PHOTODUMP XYZ</h5>
-        <p class="project-content">An Amazon Web Services server running Weblogic 12.1.3. The project runs AngularJS, Spring MVC, Hibernate, and an Oracle database. It allows posting and getting of image links to and from the database. Why does the address bar show an IP and port instead of photodump.xyz? Because DNS is confusing.<br><br>
-        <a href="http://photodump.xyz">Go to photodump.xyz</a>
-        </p>
-      </div>
-
-      <div class="body-element wow fadeInDown" data-wow-duration="0.5s">
-        <h5 class="project-title">BRICK BLASTER 6000</h5>
-        <p class="project-content">An iOS game made with Objective-C and Cocos2D. The player controls a spaceship and defends earth from an asteroid bombardment. The game ends when earth gets hit by an asteroid; otherwise, keep playing to get your score as high as possible. Unpublished due to unoriginal art and expensive developer fees.</p>
-      </div>
-      
-      <div class="body-element wow fadeInDown" data-wow-duration="0.5s">
-        <h5 class="project-title">DUCKDUCKGO EMACS CHEATSHEET</h5>
-        <p class="project-content">An Emacs commands cheatsheet Instant Answer for DuckDuckGo. Mostly HTML/CSS styling with some Perl scripting. Recently restyled to fit DuckDuckGo's cheatsheet template.</p>
-      </div>
-      
-      <div class="body-element wow fadeInDown" data-wow-duration="0.5s">
-        <h5 class="project-title">PENN OS</h5>
-        <p class="project-content">A Unix-like virtual operating system that runs on a Linux host. Complete with processes/threads, scheduling, a FAT filesystem, and a shell/command line. Created in C with three teammates.</p>
-      </div>
-      
-      <div class="body-element wow fadeInDown" data-wow-duration="0.5s">
-        <h5 class="project-title">THE MAGICAL ADVENTURES OF LEMONS</h5>
-        <p class="project-content">A text-based adventure game with multiple level areas, NPC's and enemies, a trading system, side quests, items, and stats. Also includes a combat system with skill and chance components and rapidly-increasing difficulty. Created in C++ with one partner.</p>
-      </div>
-
-      <div class="body-element wow fadeInDown" data-wow-duration="0.5s">
-        <h5 class="project-title">BRICK BLASTER 5000</h5>
-        <p class="project-content">A Breakout clone with heavy object-oriented programming and a graphical interface. The first game I created, running on any desktop environment. Created with Java Swing.</p>
-      </div>
-
-      <div class="body-element wow fadeInDown" data-wow-duration="0.5s">
-        <h5 class="project-title">SOME OTHER STUFF</h5>
-        <p class="project-content">A client/server chat-room client supporting multiple threads/users. A static twitter-like social network graph. Several simple iOS apps using Core Data, MapKit, varying View Controllers, and other libraries. Simple Ruby on Rails projects. A Django app for analyzing financial data.</p>
-      </div>
-      
-      <div class="hidden push wow fadeInUp" data-wow-duration="0.5s"></div>
-
-    </div>
-
-    <div class="projects-button-container wow fadeInDown" data-wow-duration="0.5s">
-      <!--<div class="projects-button">
-        <p class="button-text">view projects</p>
-      </div>-->
-
-      <button class="projects-button" id="projects-button">view projects</button>
-    </div>
-
-    <div class="hidden footer wow fadeInUp" data-wow-duration="0.5s">
-      <p class="footer-content">Made by Jim, with help from <a href="http://daneden.github.io/animate.css/">Animate.css</a> and <a href="http://mynameismatthieu.com/WOW/index.html">Wow.js</a>.</p>
-    </div>
-
-    <!-- with ♥ -->
 
     <script src="js/wow.min.js"></script>
     <script>
       new WOW().init();
     </script>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
 
-            $(".projects-button").click(function() {
-              $(".projects-button-container").hide();
-              $(".body").show();
-              $(".push").show();
-              $(".footer").show();
-            });
+  </body>
 
-            $(".header h1").click(function() {
-              $(".body").hide();
-              $(".push").hide();
-              $(".footer").hide();
-              $(".projects-button-container").show();
-            });
-        });
-    </script>
-
-</body>
-
-</html>
+  </html>
