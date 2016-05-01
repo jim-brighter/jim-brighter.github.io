@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    alert("ONLY WORKS WITH SIMPLE CALCULATIONS. MAKE SURE YOU CLEAR AFTER EACH CALCULATION.");
+    alert("Only works with simple calculations. Clear after each calculation for best results.");
 
     var num1 = "";
     var num2 = "";

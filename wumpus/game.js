@@ -92,6 +92,8 @@
                win.appendChild(win_text);
                document.body.appendChild(win);
             }
+        } else if (event.keyCode == 13) {
+            location.reload();
         }
     };
     
