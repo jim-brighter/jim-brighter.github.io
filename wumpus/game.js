@@ -33,6 +33,7 @@
     }
     
     window.onload = function() {
+        alert("Tap or use arrow keys to move");
         player = document.getElementById("player");
         document.getElementById(random_location()).appendChild(wumpus);
         document.getElementById(random_location()).appendChild(gold);
