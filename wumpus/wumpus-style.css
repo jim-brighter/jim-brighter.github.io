@@ -19,12 +19,13 @@ td {
     background-color: black;
     margin-left: auto;
     margin-right: auto;
+    font-size: 8pt;
+    color: white;
 }
 
 #wumpus {
-    width: 20px;
-    height: 20px;
-    background-color: green;
+    width: 40px;
+    height: 40px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -33,6 +34,8 @@ td {
     width: 20px;
     height: 20px;
     background-color: gold;
+    box-shadow: 0px 2px 4px -1px #444444;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 20px;
 }

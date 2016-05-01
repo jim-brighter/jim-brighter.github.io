@@ -10,8 +10,9 @@
         "DOWN": 40
     };
     var player = {};
-    var wumpus = document.createElement("div");
+    var wumpus = document.createElement("img");
     var gold = document.createElement("div");
+    wumpus.src = "http://pavao.org/compsci/intro/images/wumpusc.gif";
     wumpus.id = "wumpus";
     gold.id = "gold";
     
@@ -71,16 +72,25 @@
             move(wumpus, random_num(37,41));
             if (player.parentElement.id == wumpus.parentElement.id) {
                 KEY_CODES = {};
-                alert("You lost! The Wumpus killed you!");
+                var fail = document.createElement("h3");
+                var fail_text = document.createTextNode(">>> You lost! The Wumpus killed you!");
+                fail.appendChild(fail_text);
+                document.body.appendChild(fail);
             }
             if (gold.parentElement && player.parentElement.id == gold.parentElement.id) {
                 gold.parentElement.removeChild(gold);
                 has_gold = true;
-                alert("You got the gold! Escape!");
+                var gold_message = document.createElement("h3");
+                var gold_message_text = document.createTextNode(">>> You got the gold! Escape!");
+                gold_message.appendChild(gold_message_text);
+                document.body.appendChild(gold_message);
             }
             if (has_gold && player.parentElement.id == EXIT_CELL) {
                 KEY_CODES = {};
-                alert("Congrats, you won!");
+               var win = document.createElement("h3");
+               var win_text = document.createTextNode(">>> You escaped! Winner!");
+               win.appendChild(win_text);
+               document.body.appendChild(win);
             }
         }
     };
