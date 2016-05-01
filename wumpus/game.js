@@ -65,33 +65,37 @@
         var newParent = document.getElementById(nextLoc.join("-"));
         if (newParent) newParent.appendChild(entity); 
     };
+    
+    var postMoveAction = function() {
+        if (player.parentElement.id == wumpus.parentElement.id) {
+            KEY_CODES = {};
+            var fail = document.createElement("h3");
+            var fail_text = document.createTextNode(">>> You lost! The Wumpus killed you!");
+            fail.appendChild(fail_text);
+            document.body.appendChild(fail);
+        }
+        if (gold.parentElement && player.parentElement.id == gold.parentElement.id) {
+            gold.parentElement.removeChild(gold);
+            has_gold = true;
+            var gold_message = document.createElement("h3");
+            var gold_message_text = document.createTextNode(">>> You got the gold! Escape!");
+            gold_message.appendChild(gold_message_text);
+            document.body.appendChild(gold_message);
+        }
+        if (has_gold && player.parentElement.id == EXIT_CELL) {
+            KEY_CODES = {};
+            var win = document.createElement("h3");
+            var win_text = document.createTextNode(">>> You escaped! Winner!");
+            win.appendChild(win_text);
+            document.body.appendChild(win);
+        }
+    };
 
     window.onkeydown = function(event) {
         if (event.keyCode in KEY_CODES) {
             move(player, event.keyCode);
             move(wumpus, random_num(37,41));
-            if (player.parentElement.id == wumpus.parentElement.id) {
-                KEY_CODES = {};
-                var fail = document.createElement("h3");
-                var fail_text = document.createTextNode(">>> You lost! The Wumpus killed you!");
-                fail.appendChild(fail_text);
-                document.body.appendChild(fail);
-            }
-            if (gold.parentElement && player.parentElement.id == gold.parentElement.id) {
-                gold.parentElement.removeChild(gold);
-                has_gold = true;
-                var gold_message = document.createElement("h3");
-                var gold_message_text = document.createTextNode(">>> You got the gold! Escape!");
-                gold_message.appendChild(gold_message_text);
-                document.body.appendChild(gold_message);
-            }
-            if (has_gold && player.parentElement.id == EXIT_CELL) {
-                KEY_CODES = {};
-               var win = document.createElement("h3");
-               var win_text = document.createTextNode(">>> You escaped! Winner!");
-               win.appendChild(win_text);
-               document.body.appendChild(win);
-            }
+            postMoveAction();
         } else if (event.keyCode == 13) {
             location.reload();
         }
@@ -99,5 +103,30 @@
     
     document.getElementById("refresh").onclick = function() {
         location.reload();
+    };
+    
+    document.getElementsByTagName("table")[0].ontouchstart = function(event) {
+        if (has_gold && player.parentElement.id == EXIT_CELL) {
+            return;
+        }
+        var location = event.targetTouches[0].target.id.split("-");
+        var player_loc = player.parentElement.id.split("-");
+        var xDiff = Number(location[0]) - Number(player_loc[0]);
+        var canMove = true;
+        if (xDiff > 0) {
+            move(player, KEY_CODES["DOWN"]);
+            canMove = false;
+        } else if (xDiff < 0) {
+            move(player, KEY_CODES["UP"]);
+            canMove = false;
+        }
+        var yDiff = Number(location[1]) - Number(player_loc[1]);
+        if (canMove && yDiff > 0) {
+            move(player, KEY_CODES["RIGHT"]);
+        } else if (canMove && yDiff < 0) {
+            move(player, KEY_CODES["LEFT"]);
+        }
+        move(wumpus, random_num(37,41));
+        postMoveAction();
     };
 })();
