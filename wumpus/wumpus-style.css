@@ -1,0 +1,38 @@
+h1 {
+    font-family: "Helvetiva Neue", Arial, sans-serif;
+}
+
+table, tr, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+
+#player {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#wumpus {
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#gold {
+    width: 20px;
+    height: 20px;
+    background-color: gold;
+    margin-left: auto;
+    margin-right: auto;
+}
