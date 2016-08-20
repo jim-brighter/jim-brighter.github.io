@@ -1,0 +1,47 @@
+* {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.cell {
+    width: 25px;
+    height: 25px;
+    border-collapse: collapse;
+    background-color: #bbb;
+    cursor: default;
+}
+
+h4 {
+    margin-top: 0px;
+    padding-top: 10px;
+    margin-bottom: 0px;
+    padding-bottom: 5px;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    background-color: #2222aa;
+}
+
+.board {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+}
+
+.hitCell {
+    background-color: red;
+}
+
+.missCell {
+    background-color: white;
+}
