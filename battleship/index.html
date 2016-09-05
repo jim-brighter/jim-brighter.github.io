@@ -15,9 +15,9 @@
             <tr>
                 <td class="cell" ng-repeat="index in range(0,10)">{{index | noZeroes}}</td>
             </tr>
-            <tr ng-repeat="row in oppBoard">
+            <tr ng-repeat="row in oppBoard.board">
                 <td class="cell">{{row[0].r}}</td>
-                <td class="cell" ng-repeat="cell in row" ng-click="currentPlayer < 0 || fire(cell.r, cell.c, 'oppBoard')" ng-class="{'hitCell': cell.hitInd == true, 'missCell': cell.hitInd == false}" ng-disabled="currentPlayer < 0">&nbsp;</td>
+                <td class="cell" ng-repeat="cell in row" ng-click="currentPlayer < 0 || fire(cell.r, cell.c, oppBoard)" ng-class="{'hitCell': cell.hitInd == true, 'missCell': cell.hitInd == false}" ng-disabled="currentPlayer < 0"></td>
             </tr>
         </table>
         <h4>Mine</h4>
@@ -25,9 +25,9 @@
             <tr>
                 <td class="cell" ng-repeat="index in range(0,10)">{{index | noZeroes}}</td>
             </tr>
-            <tr ng-repeat="row in myBoard">
+            <tr ng-repeat="row in myBoard.board">
                 <td class="cell">{{row[0].r}}</td>
-                <td class="cell" ng-repeat="cell in row" ng-class="{'hitCell': cell.hitInd == true, 'missCell': cell.hitInd == false}">&nbsp;</td>
+                <td class="cell" ng-repeat="cell in row" ng-class="{'hitCell': cell.hitInd == true, 'missCell': cell.hitInd == false}"></td>
             </tr>
         </table>
     </div>

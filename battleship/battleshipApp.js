@@ -1,182 +1,82 @@
 var battleship = angular.module("battleship", []);
 
 var rows = ["A","B","C","D","E","F","G","H","I","J"];
-var orientations = {
-    NORTH: "NORTH",
-    SOUTH: "SOUTH",
-    EAST: "EAST",
-    WEST: "WEST"
+
+function Ship(name, length) {
+    this.name = name;
+    this.length = length;
+    this.hits = 0;
+};
+
+function Cell(row, col, shipHere, hitInd, whoseBoard) {
+    this.r = row;
+    this.c = col;
+    this.shipHere = shipHere;
+    this.hitInd = hitInd;
+    this.whoseBoard = whoseBoard;
+};
+
+function Board(whoseBoard) {
+    this.board = [];
+    this.whoseBoard = whoseBoard;
+    this.init = function() {
+        for (var x = 0; x < 10; x++) {
+            this.board.push([]);
+            for (var y = 0; y < 10; y++) {
+                this.board[x].push(new Cell(rows[x], y+1, null, null, this.whoseBoard));
+            }
+        }
+    };
+    this.init();
 };
 
 battleship.controller("battlectrl", ["$scope", function($scope) {
     $scope.currentPlayer = 1;
 
-    $scope.myBoard = [];
-    for (var x = 0; x < 10; x++) {
-        $scope.myBoard.push([]);
-        for (var y = 0; y < 10; y++) {
-            $scope.myBoard[x].push({r: rows[x], c: y+1, shipHere: null, hitInd: null});
-        }
-    }
+    $scope.myBoard = new Board("player");
 
-    $scope.oppBoard = [];
-    for (var x = 0; x < 10; x++) {
-        $scope.oppBoard.push([]);
-        for (var y = 0; y < 10; y++) {
-            $scope.oppBoard[x].push({r: rows[x], c: y+1, shipHere: null, hitInd: null});
-        }
-    }
+    $scope.oppBoard = new Board("cpu");
 
     $scope.myShips = {
-        PATROL: {
-            name: "Patrol Boat",
-            length: 2,
-            headPosition: null,
-            orientation: null,
-            hits: [false, false]
-        },
-        SUBMARINE: {
-            name: "Submarine",
-            length: 3,
-            headPosition: null,
-            orientation: null,
-            hits: [false, false, false]
-        },
-        DESTROYER: {
-            name: "Destroyer",
-            length: 3,
-            headPosition: null,
-            orientation: null,
-            hits: [false, false, false]
-        },
-        BATTLESHIP: {
-            name: "Battleship",
-            length: 4,
-            headPosition: null,
-            orientation: null,
-            hits: [false, false, false, false]
-        },
-        AIRCRAFT: {
-            name: "Aircraft Carrier",
-            length: 5,
-            headPosition: null,
-            orientation: null,
-            hits: [false, false, false, false, false]
-        }
+        PATROL: new Ship("Patrol Boat", 2),
+        SUBMARINE: new Ship("Submarine", 3),
+        DESTROYER: new Ship("Destroyer", 3),
+        BATTLESHIP: new Ship("Battleship", 4),
+        AIRCRAFT: new Ship("Aircraft Carrier", 5)
     };
 
     $scope.oppShips = {
-        PATROL: {
-            name: "Patrol Boat",
-            length: 2,
-            headPosition: null,
-            orientation: null,
-            hits: [false, false]
-        },
-        SUBMARINE: {
-            name: "Submarine",
-            length: 3,
-            headPosition: null,
-            orientation: null,
-            hits: [false, false, false]
-        },
-        DESTROYER: {
-            name: "Destroyer",
-            length: 3,
-            headPosition: null,
-            orientation: null,
-            hits: [false, false, false]
-        },
-        BATTLESHIP: {
-            name: "Battleship",
-            length: 4,
-            headPosition: null,
-            orientation: null,
-            hits: [false, false, false, false]
-        },
-        AIRCRAFT: {
-            name: "Aircraft Carrier",
-            length: 5,
-            headPosition: null,
-            orientation: null,
-            hits: [false, false, false, false, false]
-        }
+        PATROL: new Ship("Patrol Boat", 2),
+        SUBMARINE: new Ship("Submarine", 3),
+        DESTROYER: new Ship("Destroyer", 3),
+        BATTLESHIP: new Ship("Battleship", 4),
+        AIRCRAFT: new Ship("Aircraft Carrier", 5)
     };
 
-    $scope.oppShips.BATTLESHIP.headPosition = {r: "E", c: 5};
-    $scope.oppShips.BATTLESHIP.orientation = "SOUTH";
-
-    $scope.oppBoard[rows.indexOf("E")][5-1].shipHere = "BATTLESHIP";
-    $scope.oppBoard[rows.indexOf("F")][5-1].shipHere = "BATTLESHIP";
-    $scope.oppBoard[rows.indexOf("G")][5-1].shipHere = "BATTLESHIP";
-    $scope.oppBoard[rows.indexOf("H")][5-1].shipHere = "BATTLESHIP";
+    $scope.oppBoard.board[rows.indexOf("E")][4].shipHere = "BATTLESHIP";
+    $scope.oppBoard.board[rows.indexOf("F")][4].shipHere = "BATTLESHIP";
+    $scope.oppBoard.board[rows.indexOf("G")][4].shipHere = "BATTLESHIP";
+    $scope.oppBoard.board[rows.indexOf("H")][4].shipHere = "BATTLESHIP";
 
     var shipInCell = function(row,col,board) {
-        if (board == "oppBoard") {
-            if ($scope.oppBoard[rows.indexOf(row)][col-1].shipHere != null && $scope.oppBoard[rows.indexOf(row)][col-1].hitInd == null) {
-                return true;
-            }
-        }
-        else if (board == "myBoard") {
-            if ($scope.myBoard[rows.indexOf(row)][col-1].shipHere != null && $scope.myBoard[rows.indexOf(row)][col-1].hitInd == null) {
-                return true;
-            }
+        if (board.board[rows.indexOf(row)][col-1].shipHere != null && board.board[rows.indexOf(row)][col-1].hitInd == null) {
+            return true;
         }
         return false;
     };
 
     var setHit = function(row,col,board) {
-        if (board == "oppBoard") {
-            var cell = $scope.oppBoard[rows.indexOf(row)][col-1];
-            cell.hitInd = true;
-            var ship = $scope.oppShips[cell.shipHere];
-            switch(ship.orientation) {
-                case "NORTH":
-                    ship.hits[Math.abs(rows.indexOf(ship.headPosition.r) - rows.indexOf(row))] = true;
-                    break;
-                case "SOUTH":
-                    ship.hits[Math.abs(rows.indexOf(ship.headPosition.r) - rows.indexOf(row))] = true;
-                    break;
-                case "EAST":
-                    ship.hits[Math.abs(ship.headPosition.c - col)] = true;
-                    break;
-                case "WEST":
-                    ship.hits[Math.abs(ship.headPosition.c - col)] = true;
-                    break;
-            }
-            if (ship.hits.indexOf(false) < 0) {
-                alert("You sunk your opponent's " + ship.name + "!");
-            }
-        } else if (board == "myBoard") {
-            var cell = $scope.myBoard[rows.indexOf(row)][col-1];
-            cell.hitInd = true;
-            var ship = $scope.myShips[cell.shipHere];
-            switch(ship.orientation) {
-                case "NORTH":
-                    ship.hits[Math.abs(rows.indexOf(ship.headPosition.r) - rows.indexOf(row))] = true;
-                    break;
-                case "SOUTH":
-                    ship.hits[Math.abs(rows.indexOf(ship.headPosition.r) - rows.indexOf(row))] = true;
-                    break;
-                case "EAST":
-                    ship.hits[Math.abs(ship.headPosition.c - col)] = true;
-                    break;
-                case "WEST":
-                    ship.hits[Math.abs(ship.headPosition.c - col)] = true;
-                    break;
-            }
-            if (ship.hits.indexOf(false) < 0) {
-                alert("The enemy sunk your " + ship.name + "!");
-            }
+        var cell = board.board[rows.indexOf(row)][col-1];
+        cell.hitInd = true;
+        var ship = $scope.oppShips[cell.shipHere];
+        ship.hits++;
+        if (ship.hits >= ship.length) {
+            alert("You sunk your opponent's " + ship.name + "!");
         }
     }
 
     var setMiss = function(row,col,board) {
-        if (board == "oppBoard") {
-            $scope.oppBoard[rows.indexOf(row)][col-1].hitInd = false;
-        } else if (board == "myBoard") {
-            $scope.myBoard[rows.indexOf(row)][col-1].hitInd = false;
-        }
+        board.board[rows.indexOf(row)][col-1].hitInd = false;
     }
 
     var getRandomInt = function(min, max) {
@@ -184,7 +84,7 @@ battleship.controller("battlectrl", ["$scope", function($scope) {
     };
 
     var takeCPUTurn = function() {
-        $scope.fire(rows[getRandomInt(0,9)],getRandomInt(1,10),"myBoard");
+        $scope.fire(rows[getRandomInt(0,9)],getRandomInt(1,10),$scope.myBoard);
     };
 
     $scope.$on("playerChanged", function(event) {
@@ -198,9 +98,8 @@ battleship.controller("battlectrl", ["$scope", function($scope) {
     });
 
     $scope.fire = function(row, col, board) {
-        var activeBoard = (board == "oppBoard" ? $scope.oppBoard : $scope.myBoard);
-        if (activeBoard[rows.indexOf(row)][col-1].hitInd != null) {
-            console.log("Already guessed there!");
+        if (board.board[rows.indexOf(row)][col-1].hitInd != null) {
+            console.log("Player " + ($scope.currentPlayer == 1 ? "PLAYER" : "CPU") + " already guessed there!");
             if ($scope.currentPlayer < 0) {
                 $scope.$emit("cpuRetry");
             }
