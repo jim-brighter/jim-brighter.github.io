@@ -13,6 +13,11 @@ html, body {
     border-collapse: collapse;
     background-color: #bbb;
     cursor: default;
+    color: white;
+}
+
+.border-cell {
+    color: black;
 }
 
 h4 {
@@ -44,4 +49,8 @@ h4 {
 
 .missCell {
     background-color: white;
+}
+
+.shipCell {
+    background-color: black;
 }
