@@ -17,7 +17,7 @@
             </tr>
             <tr ng-repeat="row in oppBoard.board">
                 <td class="cell border-cell">{{row[0].r}}</td>
-                <td class="cell" ng-repeat="cell in row" ng-click="currentPlayer < 0 || fire(cell.r, cell.c, oppBoard, oppShips)" ng-class="{'hitCell': cell.hitInd == true, 'missCell': cell.hitInd == false}" ng-disabled="currentPlayer < 0"></td>
+                <td class="cell" ng-repeat="cell in row" ng-click="currentPlayer <= 0 || fire(cell.r, cell.c, oppBoard, oppShips)" ng-class="{'hitCell': cell.hitInd == true, 'missCell': cell.hitInd == false}" ng-disabled="currentPlayer <= 0"></td>
             </tr>
         </table>
         <h4>Mine</h4>

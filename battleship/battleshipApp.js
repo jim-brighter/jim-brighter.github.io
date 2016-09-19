@@ -41,6 +41,7 @@ battleship.controller("battlectrl", ["$scope", "game_vals", function($scope, gam
             BATTLESHIP: new Ship("Battleship", 4),
             AIRCRAFT: new Ship("Aircraft Carrier", 5)
         };
+        this.remainingShips = 5;
     };
 
     function Cell(row, col, shipHere, hitInd, whoseBoard) {
@@ -210,6 +211,7 @@ battleship.controller("battlectrl", ["$scope", "game_vals", function($scope, gam
         var ship = fleet.fleet[cell.shipHere];
         ship.hits++;
         if (ship.hits >= ship.length) {
+            fleet.remainingShips -= 1;
             alert(game_vals.CURRENT_PLAYER_MAP[$scope.currentPlayer.toString()] + " sunk their opponent's " + ship.name + "!");
         }
     }
@@ -238,6 +240,11 @@ battleship.controller("battlectrl", ["$scope", "game_vals", function($scope, gam
             setHit(row,col,board,fleet);
         } else {
             setMiss(row,col,board);
+        }
+        if (fleet.remainingShips <= 0) {
+            alert(game_vals.CURRENT_PLAYER_MAP[$scope.currentPlayer.toString()] + " sunk all their opponent's ships! Game over!");
+            $scope.currentPlayer = 0;
+            return;
         }
         $scope.currentPlayer *= -1;
         $scope.$emit(game_vals.TAKE_TURN);
