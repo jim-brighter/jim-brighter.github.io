@@ -6,7 +6,6 @@
   <title>Jim Brighter</title>
   <link rel="stylesheet" type="text/css" href="css/home-main.css">
   <link rel="stylesheet" type="text/css" href="css/home-phone.css">
-  <link rel="stylesheet" type="text/css" href="css/animate.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
   <meta name="author" content="Jim Brighter">
@@ -15,9 +14,9 @@
 
 <body>
 
-  <div id="top" class="main wow fadeInDown" data-wow-duration="0.5s">
+  <div id="top" class="main">
 
-    <div class="titles wow fadeInLeft" data-wow-duration="0.5s">
+    <div class="titles">
       <h1 class="heading">Jim Brighter</h1>
       <h5 class="heading">Software Engineer</h5>
       <div id="list-container">
@@ -57,9 +56,7 @@
       </div>
     </div>
 
-    <script src="js/wow.min.js"></script>
     <script>
-      new WOW().init();
       (function() {
         var randomColor = function() {
           return (Math.random()*0xFFFFFF<<0).toString(16);
@@ -99,8 +96,6 @@
 
           var css = '.card:hover { \
                           color: ' + '#' + color + '; \
-                          border: 1px solid ' + '#' + color + '; \
-                          background-color: white; \
                       }';
 
           var style = document.createElement('style');
