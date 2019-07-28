@@ -29,86 +29,94 @@
         </ul>
       </div>
     </div>
-    <h6 id="bio-summary">Hey, I'm Jim. I'm a developer currently using Java and AngularJS.<br/>
+    <h6 id="bio-summary">Hey, I'm Jim. I'm a developer currently using Java and AngularJS.<br />
       <span class="small">(But I like NodeJS and Python too)</span></h6>
   </div>
 
-    <div id="middle" class="main">
+  <div id="middle" class="main">
 
-      <h5 id="middle-heading">Some Links</h5>
+    <h5 id="middle-heading">Some Links</h5>
 
-      <div id="card-deck">
-        <a href="http://photodump.xyz/"><div class="card">
+    <div id="card-deck">
+      <a href="http://photodump.xyz/">
+        <div class="card">
           <h6 class="small">Photodump XYZ</h6>
-          <p>An image dump website that allows posting and getting of images. Uses AngularJS for the frontend and a Java Spring Boot application for the backend, with Hibernate to manage storage in a PostgreSQL database. Deployed using Docker.</p>
-        </div></a>
+          <p>An image dump website that allows posting and getting of images. Uses AngularJS for the frontend and a Java
+            Spring Boot application for the backend, with Hibernate to manage storage in a PostgreSQL database. Deployed
+            using Docker.</p>
+        </div>
+      </a>
 
-        <a href="/junk/calculator"><div class="card">
+      <a href="/junk/calculator">
+        <div class="card">
           <h6 class="small">A Calculator</h6>
           <p>An HTML + jQuery calculator</p>
-        </div></a>
+        </div>
+      </a>
 
-        <a href="/battleship"><div class="card">
+      <a href="/battleship">
+        <div class="card">
           <h6 class="small">Battleship</h6>
           <p>An AngularJS implementation of Battleship. Work in progress</p>
-        </div></a>
+        </div>
+      </a>
 
-      </div>
     </div>
+  </div>
 
-    <script>
-      (function() {
-        var randomColor = function() {
-          return (Math.random()*0xFFFFFF<<0).toString(16);
-        };
+  <script>
+    (function () {
+      var randomColor = function () {
+        return (Math.random() * 0xFFFFFF << 0).toString(16);
+      };
 
-        //shamelessly ripped from stack overflow
-        function luminanace(r, g, b) {
-            var a = [r,g,b].map(function(v) {
-                v /= 255;
-                return (v <= 0.03928) ?
-                    v / 12.92 :
-                    Math.pow( ((v+0.055)/1.055), 2.4 );
-                });
-            return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
-        };
+      //shamelessly ripped from stack overflow
+      function luminanace(r, g, b) {
+        var a = [r, g, b].map(function (v) {
+          v /= 255;
+          return (v <= 0.03928) ?
+            v / 12.92 :
+            Math.pow(((v + 0.055) / 1.055), 2.4);
+        });
+        return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+      };
 
-        var ratio = 0.0;
-        var color = 0;
+      var ratio = 0.0;
+      var color = 0;
 
-        while (ratio <=4.5) {
+      while (ratio <= 4.5) {
 
-          color = randomColor();
+        color = randomColor();
 
-          ratio = (luminanace(255,255,255) + 0.05) /
-                  (luminanace(parseInt(color.substring(0,2), 16),
-                              parseInt(color.substring(2,4), 16),
-                              parseInt(color.substring(4,6), 16)) + 0.05);
-        };
+        ratio = (luminanace(255, 255, 255) + 0.05) /
+          (luminanace(parseInt(color.substring(0, 2), 16),
+            parseInt(color.substring(2, 4), 16),
+            parseInt(color.substring(4, 6), 16)) + 0.05);
+      };
 
-        color = color.toString();
-        do {
-          color = color.length < 6 ? '0' + color : color;
-        } while (color.length < 6);
+      color = color.toString();
+      do {
+        color = color.length < 6 ? '0' + color : color;
+      } while (color.length < 6);
 
-        window.onload = function() {
-          document.body.style.backgroundColor = '#' + color;
+      window.onload = function () {
+        document.body.style.backgroundColor = '#' + color;
 
-          var css = '.card:hover { \
+        var css = '.card:hover { \
                           color: ' + '#' + color + '; \
                       }';
 
-          var style = document.createElement('style');
-          if (style.styleSheet) {
-            style.styleSheet.cssText = css;
-          } else {
-            style.appendChild(document.createTextNode(css));
-          }
-          document.getElementsByTagName('head')[0].appendChild(style);
-        };
-      })();
-    </script>
+        var style = document.createElement('style');
+        if (style.styleSheet) {
+          style.styleSheet.cssText = css;
+        } else {
+          style.appendChild(document.createTextNode(css));
+        }
+        document.getElementsByTagName('head')[0].appendChild(style);
+      };
+    })();
+  </script>
 
-  </body>
+</body>
 
-  </html>
+</html>
