@@ -23,7 +23,6 @@
         <ul id="links">
           <li class="link"><a href="https://www.github.com/jim-brighter">GitHub</a></li>
           <li class="link"><a href="https://www.linkedin.com/in/jimbrighter">LinkedIn</a></li>
-          <li class="link"><a href="https://www.twitter.com/jim_brighter">Twitter</a></li>
           <li class="link"><a href="mailto:hello@jimbrighter.com">Email</a></li>
           <li class="link"><a href="resume.pdf">Resume</a></li>
         </ul>
@@ -31,37 +30,6 @@
     </div>
     <h6 id="bio-summary">Hey, I'm Jim. I'm a developer currently using Java and AngularJS.<br />
       <span class="small">(But I like NodeJS and Python too)</span></h6>
-  </div>
-
-  <div id="middle" class="main">
-
-    <h5 id="middle-heading">Some Links</h5>
-
-    <div id="card-deck">
-      <a href="http://photodump.xyz/">
-        <div class="card">
-          <h6 class="small">Photodump XYZ</h6>
-          <p>An image dump website that allows posting and getting of images. Uses AngularJS for the frontend and a Java
-            Spring Boot application for the backend, with Hibernate to manage storage in a PostgreSQL database. Deployed
-            using Docker.</p>
-        </div>
-      </a>
-
-      <a href="/junk/calculator">
-        <div class="card">
-          <h6 class="small">A Calculator</h6>
-          <p>An HTML + jQuery calculator</p>
-        </div>
-      </a>
-
-      <a href="/battleship">
-        <div class="card">
-          <h6 class="small">Battleship</h6>
-          <p>An AngularJS implementation of Battleship. Work in progress</p>
-        </div>
-      </a>
-
-    </div>
   </div>
 
   <script>
@@ -101,18 +69,6 @@
 
       window.onload = function () {
         document.body.style.backgroundColor = '#' + color;
-
-        var css = '.card:hover { \
-                          color: ' + '#' + color + '; \
-                      }';
-
-        var style = document.createElement('style');
-        if (style.styleSheet) {
-          style.styleSheet.cssText = css;
-        } else {
-          style.appendChild(document.createTextNode(css));
-        }
-        document.getElementsByTagName('head')[0].appendChild(style);
       };
     })();
   </script>
