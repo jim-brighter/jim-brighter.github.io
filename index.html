@@ -33,14 +33,14 @@
   </div>
 
   <script>
-    (function () {
-      var randomColor = function () {
+    (() => {
+      const randomColor = () => {
         return (Math.random() * 0xFFFFFF << 0).toString(16);
       };
 
       //shamelessly ripped from stack overflow
-      function luminanace(r, g, b) {
-        var a = [r, g, b].map(function (v) {
+      const luminanace = (r, g, b) => {
+        const a = [r, g, b].map((v) => {
           v /= 255;
           return (v <= 0.03928) ?
             v / 12.92 :
@@ -49,8 +49,8 @@
         return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
       };
 
-      var ratio = 0.0;
-      var color = 0;
+      let ratio = 0.0;
+      let color = 0;
 
       while (ratio <= 4.5) {
 
@@ -67,7 +67,7 @@
         color = color.length < 6 ? '0' + color : color;
       } while (color.length < 6);
 
-      window.onload = function () {
+      window.onload = () => {
         document.body.style.backgroundColor = '#' + color;
       };
     })();
