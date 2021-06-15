@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 
 /*
 CSS stylesheet for index.html
@@ -8,7 +8,7 @@ CSS stylesheet for index.html
 * {
     margin: 0px;
     padding: 0px;
-    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Source Code Pro', monospace;
     cursor: default;
 }
 
