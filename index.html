@@ -31,48 +31,5 @@
     <h6 id="bio-summary">Hey, I'm Jim. I'm a full-stack developer mostly using Java.<br />
       <span class="small">I use Angular, Docker, AWS, and Jenkins too.</span></h6>
   </div>
-
-  <script>
-    (() => {
-      const randomColor = () => {
-        return (Math.random() * 0xFFFFFF << 0).toString(16);
-      };
-
-      //shamelessly ripped from stack overflow
-      const luminanace = (r, g, b) => {
-        const a = [r, g, b].map((v) => {
-          v /= 255;
-          return (v <= 0.03928) ?
-            v / 12.92 :
-            Math.pow(((v + 0.055) / 1.055), 2.4);
-        });
-        return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
-      };
-
-      let ratio = 0.0;
-      let color = 0;
-
-      while (ratio <= 4.5) {
-
-        color = randomColor();
-
-        ratio = (luminanace(255, 255, 255) + 0.05) /
-          (luminanace(parseInt(color.substring(0, 2), 16),
-            parseInt(color.substring(2, 4), 16),
-            parseInt(color.substring(4, 6), 16)) + 0.05);
-      };
-
-      color = color.toString();
-      do {
-        color = color.length < 6 ? '0' + color : color;
-      } while (color.length < 6);
-
-      window.onload = () => {
-        document.body.style.backgroundColor = '#' + color;
-      };
-    })();
-  </script>
-
 </body>
-
 </html>
