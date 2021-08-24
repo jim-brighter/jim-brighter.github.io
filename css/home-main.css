@@ -1,14 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-
-/*
-CSS stylesheet for index.html
-
-*/
-
 * {
     margin: 0px;
     padding: 0px;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'SF Mono', 'Consolas', 'Courier New', monospace;
     cursor: default;
 }
 
