@@ -105,10 +105,15 @@ h6 {
 
 .link {
     display: inline-block;
-    margin-left: .4em;
-    margin-right: .4em;
     font-size: 16pt;
     transition-duration: 0.2s;
+    padding: .4em;
+}
+
+.link:hover {
+    background: #d3d3d352;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .link>a:hover, .link>a:visited:hover {
