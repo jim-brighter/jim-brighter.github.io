@@ -1,7 +1,7 @@
 * {
     margin: 0px;
     padding: 0px;
-    font-family: 'SF Mono', 'Menlo', 'Cascadia Mono', 'Consolas', monospace;
+    font-family: 'Cascadia Mono', 'SF Mono', Menlo, Consolas, 'Courier New', monospace;
     cursor: default;
 }
 
