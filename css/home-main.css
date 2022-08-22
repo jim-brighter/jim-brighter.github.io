@@ -107,7 +107,7 @@ h6 {
     display: inline-block;
     font-size: 16pt;
     transition-duration: 0.2s;
-    padding: .4em .4em 0em 0em;
+    padding: .4em;
 }
 
 .link:hover {
