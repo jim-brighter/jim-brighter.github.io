@@ -50,21 +50,35 @@ h6 {
 .link {
     display: inline-block;
     font-size: 16pt;
-    transition-duration: 0.2s;
     padding: .4em;
 }
 
-.link:hover {
+.link:hover, .link:hover a, .link:hover a:visited {
     background: black;
-    cursor: pointer;
-    color: white;
-}
-
-.link>a:hover, .link>a:visited:hover {
     cursor: pointer;
     color: white;
 }
 
 .link>a, .link>a:visited {
     text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+
+    * {
+        color: white;
+    }
+
+    html {
+        background: rgb(0, 80, 81);
+    }
+
+    .link:hover, .link:hover a, .link:hover a:visited {
+        background: white;
+        cursor: pointer;
+        color: black;
+    }
 }
