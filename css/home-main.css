@@ -53,9 +53,12 @@ h6 {
     padding: .4em;
 }
 
-.link:hover, .link:hover a, .link:hover a:visited {
+.link:hover {
     background: black;
     cursor: pointer;
+}
+
+.link:hover>a {
     color: white;
 }
 
@@ -76,9 +79,12 @@ h6 {
         background: rgb(0, 80, 81);
     }
 
-    .link:hover, .link:hover a, .link:hover a:visited {
+    .link:hover {
         background: white;
         cursor: pointer;
+    }
+
+    .link:hover>a {
         color: black;
     }
 }
